@@ -1,0 +1,25 @@
+{
+  "name": "todoman",
+  "version": "1.0.0",
+  "description": "CLI for writing todos",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "todo": "./index.js"
+  },
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "CLI"
+  ],
+  "author": "Muhanned",
+  "license": "ISC",
+  "dependencies": {
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
