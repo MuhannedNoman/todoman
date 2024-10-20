@@ -8,6 +8,7 @@ import {
   findTodo,
   updateTodo,
 } from './todos.js';
+import { start } from './server.js';
 
 const listTodos = (todos) => {
   todos.forEach((todo) => {
@@ -98,6 +99,20 @@ yargs(hideBin(process.argv))
       } else {
         console.log(`Todo with id ${yargs.id} not found`);
       }
+    }
+  )
+  .command(
+    'web [port]',
+    'launch a website  to see our todos',
+    (yargs) =>
+      yargs.positional('port', {
+        type: 'number',
+        describe: 'the port to run the server on',
+        default: 3000,
+      }),
+    async (yargs) => {
+      const todos = await getAllTodos();
+      start(todos, yargs.port);
     }
   )
   .parse();
